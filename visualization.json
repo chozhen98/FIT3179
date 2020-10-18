@@ -20,7 +20,7 @@
       }
     }
   ],
-  "projection": {"type": "mercator"},
+  "projection": {"type": "equalEarth"},
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
