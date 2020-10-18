@@ -18,10 +18,9 @@
         "fields": ["Score", "GDP per capita","Social support","Healthy life expectancy"
         , "Freedom to make life choices", "Generosity", "Perceptions of corruption"]
       }
-    },
-    {"calculate": "datum.Score", "as": "Score"}
+    }
   ],
-  "projection": {"type": "naturalEarth1"},
+  "projection": {"type": "mercator"},
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
