@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": "Number of athletes by Continent",
+  "description": "A simple radial chart with embedded data.",
+    "data": {
+    "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/continents_v1.csv"},
+    "params": [ { "name": "Continent_selection", "bind": { "input": "select", "options": [ null, "America", "Europe",
+"Africa", "Asia", "Oceania" ], "labels":[ "Show All", "America", "Europe", "Africa", "Asia", "Oceania" ], "name": "Continent Selection: " } } ],
+
+"transform": [{"filter": "Continent_selection == null || datum.Continent == Continent_selection"}],
+
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 25, "stroke": "#fff"}
+  },{
+    "mark": {"type": "text", "radiusOffset": 25},
+    "encoding": {
+      "text": {"field": "Total_athletes", "type": "nominal"},
+      "color": {}
+    }
+  }],
+  
+  "selection": { "continent_highlight": { "type": "multi", "fields": ["Continent"], "bind": "legend" } },
+
+  "encoding": {
+    "theta": {"field": "Total_athletes", "type": "quantitative", "stack": true},
+    "radius": {"field": "Total_athletes", "scale": {"type": "sqrt", "zero": true, "rangeMin": 50}},
+    "color": {"field": "Continent", 
+    "type": "nominal", 
+    "legend": {"offset": 40},
+    "scale": {"range": ["#F4C300", "#009F3D", "#DF0024", "#000000", "#0085C7"]}
+    },
+    "tooltip": [
+    {"field": "Continent", "type": "nominal", "title": "Continent"},
+    {"field": "Total_athletes", "type": "nominal", "title": "Participant"}]
+  },
+  "view": {"stroke": null}
+  
+  
+}
