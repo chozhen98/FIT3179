@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "2016 Olympic Medal",
+  "title": "Number of athletes by Country",
   "width": 1200,
   "height": 800,
   "data": {
