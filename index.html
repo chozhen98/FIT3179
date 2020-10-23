@@ -22,6 +22,8 @@
   <br><br>
 </form>
 <div id="vis2"></div>
+  <h2>This is the third visualisation</h2>
+  <div id="vis3"></div>
   
 <script type="text/javascript">
   var spec = "visualization.json";
@@ -31,6 +33,11 @@
   
     var spec2 = "v2.json";
   vegaEmbed('#vis2', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+      var spec3 = "v3.json";
+  vegaEmbed('#vis3', spec3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>
