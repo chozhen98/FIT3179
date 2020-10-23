@@ -28,7 +28,7 @@
       "field": "Gold",
       "type": "quantitative",
       "scale": {"type": "threshold",
-      "domain": [1,10,20,40,80],
+      "domain": [1,10,20,40],
        "range": ["#bdd7e7", "#ffffb2","#f5f500","#dbdb00","#bdbd00"]}
     },
     "tooltip": [
