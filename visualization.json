@@ -12,7 +12,7 @@
       "lookup": "properties.SUBUNIT",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_num_country.csv"
+          "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/country_v2.csv"
         },
         "key": "Country",
         "fields": [
