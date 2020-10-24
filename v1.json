@@ -14,7 +14,7 @@
         "data": {
           "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/country_v2.csv"
         },
-        "key": "Country",
+        "key": "NOC",
         "fields": [
           "Athlete"
         ]
