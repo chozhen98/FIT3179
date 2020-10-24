@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>This is the first visualisation</h2>
-<div id="vis"></div>
+<div id="vis1"></div>
 <h2>This is the second visualisation</h2>
   
 <form name=frmTest action="NextPage.asp" method=POST>
@@ -26,8 +26,8 @@
   <div id="vis3"></div>
   
 <script type="text/javascript">
-  var spec = "visualization.json";
-  vegaEmbed('#vis', spec).then(function(result) {
+  var spec1 = "v1.json";
+  vegaEmbed('#vis1', spec).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
