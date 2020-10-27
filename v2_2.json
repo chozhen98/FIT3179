@@ -104,7 +104,10 @@
   "encoding": {
     "x": {"field": "Weight", "type": "quantitative", "title": "Kilogram (KG)"},
     "y": {"field": "Height", "type": "quantitative", "title": "Height (CM)"},
-    "color": {"field": "Sex", "type": "nominal"},
+    "color": {"field": "Sex", "type": "nominal", 
+    "scale":{"type": "ordinal", 
+    "domain": ["male", "female"], 
+    "range":["#4c78a8", "#f58518"]}},
     "opacity": {
       "condition": {"selection": "sex_highlight", "value": 0.6},
       "value": 0
