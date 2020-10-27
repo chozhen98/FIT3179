@@ -25,7 +25,7 @@
         "min": 0,
         "max": 45,
         "step": 0.1,
-        "name": "Minimum BMI: "
+        "name": "Min BMI: "
       }
     },
     {
@@ -36,7 +36,7 @@
         "min": 0,
         "max": 45,
         "step": 0.1,
-        "name": "Maximum BMI: "
+        "name": "Max BMI: "
       }
     },
     {
