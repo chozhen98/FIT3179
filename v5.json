@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Olympic Athlete Age Distrubtion",
+  "data": {"url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "bin":{"binned": false, "step": 1},
+      "field": "Age",
+      "type": "ordinal",
+      "title": "Athlete Age"
+    },
+    "y": {"field":"Age","aggregate": "count", "title": "Count of Age"}
+  }
+}
