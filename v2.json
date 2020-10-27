@@ -1,18 +1,26 @@
-{ "$schema": "https://vega.github.io/schema/vega-lite/v4.json", 
-"width": 800,
- "height": 600, 
- "title": "Olympic Rio 2016 Athletes BMI",
-  "data":  
-  { 
-    "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v5.csv" 
-  }, 
-  "params": 
-  [
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "2016 Summer Olympic Athletes Body Mass Index (BMI)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"
+  },
+  "params": [
+    {
+      "name": "bmi_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Obese", "Overweight", "Normal", "Underweight"],
+        "labels": ["Show All", "Obese (BMI > 30)", "Overweight (25 < BMI < 29.9) ", "Normal (18.5 < BMI < 24.9)", "Underweight (BMI < 18.5)"],
+     
+        "name": "BMI Category: "
+      }
+    },
     {
       "name": "age_above",
       "value": 0,
-      "bind": 
-      {
+      "bind": {
         "input": "range",
         "min": 0,
         "max": 65,
@@ -23,8 +31,7 @@
     {
       "name": "age_below",
       "value": 65,
-      "bind": 
-      {
+      "bind": {
         "input": "range",
         "min": 0,
         "max": 65,
@@ -35,8 +42,7 @@
     {
       "name": "bmi_above",
       "value": 0,
-      "bind": 
-      {
+      "bind": {
         "input": "range",
         "min": 0,
         "max": 45,
@@ -47,8 +53,7 @@
     {
       "name": "bmi_below",
       "value": 45,
-      "bind": 
-      {
+      "bind": {
         "input": "range",
         "min": 0,
         "max": 45,
@@ -56,73 +61,40 @@
         "name": "Maximum BMI: "
       }
     }
-
   ],
-
-
-
-
-  "transform": 
-  [
+  "transform": [
     {"filter": "datum.Weight > 0"},
     {"filter": "datum.Height > 0"},
     {"filter": "datum.Age > age_above"},
     {"filter": "datum.Age < age_below"},
-    {"calculate": "datum.Weight/((datum.Height)*2)",
-    "as": "BMI"},
-    {"filter": "datum.Weight/((datum.Height)*2) > bmi_above"},
-    {"filter": "datum.Weight/((datum.Height)*2) < bmi_below"}
+    {"calculate": "datum.Weight/(datum.Height*datum.Height)", "as": "BMI"},
+    {"filter": "datum.Weight/(datum.Height*datum.Height) > bmi_above"},
+    {"filter": "datum.Weight/(datum.Height*datum.Height) < bmi_below"},
+    {"filter": "datum.Continent"},
+    {"filter": "bmi_selection == null || datum.BMI_Range == bmi_selection"}
   ],
-  "selection": 
-    {
-      "sex_highlight": 
-      {
-        "type": "multi",
-        "fields": ["Sex"],
-        "bind": "legend"
-      }
+  "selection": {
+    "sex_highlight": {"type": "multi", "fields": ["Sex"], "bind": "legend"}
   },
   "mark": "circle",
-   "encoding":
-    { 
-      "x": 
-      { 
-      "field": "Age",
-      "type": "quantitative", 
-      "title": "Age" 
-      }, 
-        "y":
-      { 
-      "field": "BMI",
-      "type": "quantitative",
-      "title": "BMI"
-      },
-      "color": 
-      {
-        "field": "Sex",
-        "type": "nominal"
-      },
-      "opacity": 
-      {
-        "condition": 
-        { 
-          "selection": "sex_highlight",
-          "value": 0.6
-        },
-        "value": 0
-      },
-      "tooltip":
-      [
-        {"field": "Name", "type": "nominal"},
-        {"field": "Continent", "type": "nominal"},
-        {"field": "Country", "type": "nominal"},
-        {"field": "Age", "type": "quantitative"},
-        {"field": "Sex", "type": "nominal"},
-        {"field": "Height", "type": "quantitative", "title": "Height(cm)"},
-        {"field": "Weight", "type": "quantitative", "title": "Weight(kg)"},
-        {"field": "Sport", "type": "nominal"}
-        
-      ]
-    }
-
-} 
+  "encoding": {
+    "x": {"field": "Age", "type": "quantitative", "title": "Age"},
+    "y": {"field": "BMI", "type": "quantitative", "title": "BMI"},
+    "color": {"field": "Sex", "type": "nominal"},
+    "opacity": {
+      "condition": {"selection": "sex_highlight", "value": 0.6},
+      "value": 0
+    },
+    "tooltip": [
+      {"field": "Name", "type": "nominal"},
+      {"field": "Continent", "type": "nominal"},
+      {"field": "Country", "type": "nominal"},
+      {"field": "Age", "type": "quantitative"},
+      {"field": "Sex", "type": "nominal"},
+      {"field": "BMI_Range", "type": "nominal"},
+      {"field": "Height", "type": "quantitative", "title": "Height(cm)"},
+      {"field": "Weight", "type": "quantitative", "title": "Weight(kg)"},
+      {"field": "Sport", "type": "nominal"}
+    ]
+  }
+}
