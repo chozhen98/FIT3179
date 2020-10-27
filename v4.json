@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A population pyramid for the US in 2000.",
+  "title": {"text": "A gender count pyramid for the Summer Olympic in 2016.",
+  "offset": 30, "align": "left"},
+  "data": { "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"},
+  "transform": [
+    {"filter": "datum.Age > 0"}
+  ],
+  "spacing": 0,
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "Sex", "equal": "female"}},
+      {"filter": "datum.Age > 0"}
+    ],
+    "title": "Female",
+    "mark": "bar",
+    "encoding": {
+    "y": {
+      "bin":{"binned": false, "step": 2},
+      "field": "Age",
+      "type": "ordinal",
+      "title": null,
+      "sort": "descending",
+      "axis": null
+    },
+      "x": {
+        "aggregate": "count", "field": "Age",
+        "title": "Count",
+        "sort": "descending"
+      },
+      "color": {
+        "field": "Sex",
+        "scale": {"range": ["#f58518","#4c78a8"]},
+        "legend": null
+      },
+      "tooltip": [{"field": "Age","aggregate": "count", "type": "nominal", "title":"Count:"}]
+    }
+  }, 
+  {
+    "width": 1,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+    "y": {
+      "bin":{"binned": false, "step": 2},
+      "field": "Age",
+      "type": "ordinal",
+      "title": null,
+      "sort": "descending"
+    }}
+  },
+  {
+    "transform": [{
+      "filter": {"field": "Sex", "equal": "male"}
+    }],
+    "title": "Male",
+    "mark": "bar",
+    "encoding": {
+    "y": {
+      "bin":{"binned": false, "step":2},
+      "field": "Age",
+      "type": "ordinal",
+      "title": null,
+      "sort": "descending",
+      "axis": null
+    },
+      "x": {
+        "aggregate": "count", "field": "Age",
+        "title": "Count"
+      },
+      "color": {
+        "field": "Sex",
+        "legend": null
+      },
+      "tooltip": [{"field": "Age","aggregate": "count", "type": "nominal", "title":"Count:"}]
+    }
+  }],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true}
+  }
+}
