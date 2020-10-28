@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": {"text":"Athletes Numbers by Continent","offset": 35},
   "description": "A simple radial chart with embedded data.",
-  "width": 300,
-  "height": 300,
+  "width": 400,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/continents_v1.csv"
   },
