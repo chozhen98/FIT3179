@@ -3,8 +3,7 @@
   "title": {
     "text": "Athlete Gender Pyramid",
     "offset": 30,
-    "align": "left",
-    "fontSize": 20
+    "align": "left"
   },
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"
