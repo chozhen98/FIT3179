@@ -22,7 +22,7 @@
     {"calculate": "datum.Population / 1000000", "as": "Pop"}
   ],
   "projection": {"type": "equirectangular"},
-  "mark": {"type": "geoshape"},
+   "mark": {"type": "geoshape","stroke": "lightgrey"},
   "encoding": {
     "color": {"field": "Normalise", "type": "quantitative", "title":"Per mill. population", 
     "scale":{"type": "threshold", "domain": [1,5,10,20], "range":["#ffffcc","#a1dab4", "#41b6c4","#2c7fb8","#253494"]}},
