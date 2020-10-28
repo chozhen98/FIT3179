@@ -17,28 +17,6 @@
         "name": "BMI Category: "
       }
     },
-        {
-      "name": "bmi_above",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 45,
-        "step": 0.1,
-        "name": "Min BMI: "
-      }
-    },
-    {
-      "name": "bmi_below",
-      "value": 45,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 45,
-        "step": 0.1,
-        "name": "Max BMI: "
-      }
-    },
     {
       "name": "kg_above",
       "value": 0,
