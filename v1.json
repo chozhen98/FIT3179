@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Athlete Per Million Population",
-  "width": 600,
+  "width": 550,
   "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/ne_50m_admin_0_countries.json",
