@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": {"text": "Athletes Numbers by Continent", "offset": 10},
+  "description": "A simple radial chart with embedded data.",
+  "width": 300,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/continents_v1.csv"
+  },
+  "layer": [
+      {
+        "mark": {"type": "bar","tooltip": true},
+        "encoding": {        
+          "y": {
+          "field": "Continent",
+          "type": "nominal"
+ 
+        },
+        "color": {
+          "value": "grey"
+        },
+        "size": {
+          "value": 3
+        },
+        "x": {
+          "field": "Total_athletes",
+          "type": "quantitative",
+          "title":"Athlete Count"
+        }}
+      },
+      {
+        "mark": 
+        {
+          "type": "circle",
+          "tooltip": true,
+          "opacity": 1
+        },
+        "encoding": {
+        "y": {
+          "field": "Continent",
+          "type": "nominal"
+        },
+        "size": {
+          "value": 500
+        },
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+        "domain": ["Africa","America","Asia", "Europe", "Oceania"],
+        "range": [ "#000000", "#DF0024", "#F4C300", "#009F3D", "#0085C7"]
+      }
+        },
+        "x": {
+          "field": "Total_athletes",
+          "type": "quantitative",
+          "title": "Athlete Count"
+        }
+      }
+      }
+  ]
+}
