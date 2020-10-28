@@ -70,8 +70,6 @@
     {"filter": "datum.Height > cm_above"},
     {"filter": "datum.Height < cm_below"},
     {"calculate": "datum.Weight/(datum.Height*datum.Height)", "as": "BMI"},
-    {"filter": "datum.Weight/(datum.Height*datum.Height) > bmi_above"},
-    {"filter": "datum.Weight/(datum.Height*datum.Height) < bmi_below"},
     {"filter": "datum.Continent"},
     {"filter": "bmi_selection == null || datum.BMI_Range == bmi_selection"}
   ],
