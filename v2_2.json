@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 400,
   "height": 300,
-  "title": "2016 Summer Olympic Athletes Body Mass Index (BMI)",
+  "title": "Athletes Body Mass Index (BMI)",
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"
   },
@@ -18,57 +18,22 @@
       }
     },
     {
-      "name": "kg_above",
+      "name": "age_range",
       "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 180,
+        "max": 70,
         "step": 1,
-        "name": "Min Weight: "
-      }
-    },
-    {
-      "name": "kg_below",
-      "value": 180,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 180,
-        "step": 1,
-        "name": "Max Weight: "
-      }
-    },
-        {
-      "name": "cm_above",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 2.4,
-        "step": 0.01,
-        "name": "Min Height: "
-      }
-    },
-    {
-      "name": "cm_below",
-      "value": 2.4,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 2.4,
-        "step": 0.01,
-        "name": "Max Height: "
+        "name": "Minimum Age: "
       }
     }
+
   ],
   "transform": [
     {"filter": "datum.Weight > 0"},
     {"filter": "datum.Height > 0"},
-    {"filter": "datum.Weight > kg_above"},
-    {"filter": "datum.Weight < kg_below"},
-    {"filter": "datum.Height > cm_above"},
-    {"filter": "datum.Height < cm_below"},
+    {"filter": "datum.Age > age_range"},
     {"calculate": "datum.Weight/(datum.Height*datum.Height)", "as": "BMI"},
     {"filter": "datum.Continent"},
     {"filter": "bmi_selection == null || datum.BMI_Range == bmi_selection"}
@@ -94,7 +59,7 @@
       {"field": "Country", "type": "nominal"},
       {"field": "Age", "type": "quantitative"},
       {"field": "Sex", "type": "nominal"},
-      {"field": "BMI_Range", "type": "nominal"},
+      {"field": "BMI_Range", "type": "nominal", "title": "BMI Category"},
       {"field": "Height", "type": "quantitative", "title": "Height(cm)"},
       {"field": "Weight", "type": "quantitative", "title": "Weight(kg)"},
       {"field": "Sport", "type": "nominal"}
