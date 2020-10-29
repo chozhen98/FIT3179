@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": {"text": "Athlete Gender Pyramid", "offset": 20, "align": "left", "fontSize":20},
+  "title": {"text": "Athlete Gender Pyramid", "offset": 15, "align": "left", "fontSize":15},
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"
   },
