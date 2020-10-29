@@ -1,9 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": {
-    "text": "Top 10 Most Successful Athlete",
-    "offset": 30,
-    "align": "left"
+    "text": "10 Most Successful Athletes",
+    "offset": 20,
+    "align": "left",
+    "fontSize": 20
   },
   "config": {"view": {"stroke": ""}},
   "width": 100,
@@ -266,7 +267,7 @@
       "field": "Medal",
       "header": {
         "title": "",
-        "labelFontSize": 14,
+        "labelFontSize": 12,
         "labelFontWeight": 600,
         "labelAlign": "right"
       }
@@ -276,7 +277,7 @@
       "header": {
         "labelAngle": 0,
         "labelAlign": "left",
-        "labelFontSize": 13,
+        "labelFontSize": 12,
         "labelFontWeight": 600,
         "title": null
       }
