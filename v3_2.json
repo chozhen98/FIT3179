@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": {"text": "Athletes Numbers by Continent", "offset": 10},
+  "title": {"text": "Athletes by Continent", "offset": 10},
   "width": 400,
   "height": 300,
   "data": {
