@@ -1,15 +1,81 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Olympic Athlete Age Distrubtion",
-  "data": {"url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"},
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "bin":{"binned": false, "step": 1},
-      "field": "Age",
-      "type": "ordinal",
-      "title": "Athlete Age"
+  "title": {"text": "Top 10 Most Successful Athlete", "offset": 30, "align": "left"},
+  "config": {"view": {"stroke": ""}},
+  "width": 125,
+  "height": 25,
+  "data": {
+    "values": [
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "200 m butterfly", "Medal": "Gold"},
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "200 m individual medley", "Medal": "Gold"},
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "4 × 100 m freestyle relay", "Medal": "Gold"},
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "4 × 200 m freestyle relay", "Medal": "Gold"},
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "4 × 100 m medley relay", "Medal": "Gold"},
+      {"Name": "Michael Phelps","Sport" : "aquatics","Event" : "100 m butterfly", "Medal": "Silver"},
+      {"Name": "Katie Ledecky","Sport" : "aquatics","Event" : "200 m freestyle", "Medal": "Gold"},
+      {"Name": "Katie Ledecky","Sport" : "aquatics","Event" : "400 m freestyle", "Medal": "Gold"},
+      {"Name": "Katie Ledecky","Sport" : "aquatics","Event" : "800 m freestyle", "Medal": "Gold"},
+      {"Name": "Katie Ledecky","Sport" : "aquatics","Event" : "4 × 200 m freestyle relay", "Medal": "Gold"},
+      {"Name": "Katie Ledecky","Sport" : "aquatics","Event" : "4 × 100 m freestyle relay", "Medal": "Silver"},
+      {"Name": "Simone Biles","Sport" : "gymnastic","Event" : "Team all-around", "Medal": "Gold"},
+      {"Name": "Simone Biles","Sport" : "gymnastic","Event" : "Individual all-around", "Medal": "Gold"},
+      {"Name": "Simone Biles","Sport" : "gymnastic","Event" : "Floor exercise", "Medal": "Gold"},
+      {"Name": "Simone Biles","Sport" : "gymnastic","Event" : "Vault", "Medal": "Gold"},
+      {"Name": "Simone Biles","Sport" : "gymnastic","Event" : "Balance beam", "Medal": "Bronze"},
+      {"Name": "Katinka Hosszu","Sport" : "aquatics","Event" : "100 m backstroke", "Medal": "Gold"},
+      {"Name": "Katinka Hosszu","Sport" : "aquatics","Event" : "200 m individual medley", "Medal": "Gold"},
+      {"Name": "Katinka Hosszu","Sport" : "aquatics","Event" : "400 m individual medley", "Medal": "Gold"},
+      {"Name": "Katinka Hosszu","Sport" : "aquatics","Event" : "200 m backstroke", "Medal": "Bronze"},
+      {"Name": "Danuta Kozak","Sport" : "canoe","Event" : "K-1 500 m", "Medal": "Gold"},
+      {"Name": "Danuta Kozak","Sport" : "canoe","Event" : "K-2 500 m", "Medal": "Gold"},
+      {"Name": "Danuta Kozak","Sport" : "canoe","Event" : "K-4 500 m", "Medal": "Gold"},
+      {"Name": "Jason Kenny","Sport" : "cycling","Event" : "Keirin", "Medal": "Gold"},
+      {"Name": "Jason Kenny","Sport" : "cycling","Event" : "Individual Sprint", "Medal": "Gold"},
+      {"Name": "Jason Kenny","Sport" : "cycling","Event" : "Team Sprint", "Medal": "Gold"},
+      {"Name": "Ryan Murphy","Sport" : "aquatics","Event" : "100 m backstroke", "Medal": "Gold"},
+      {"Name": "Ryan Murphy","Sport" : "aquatics","Event" : "200 m backstroke", "Medal": "Gold"},
+      {"Name": "Ryan Murphy","Sport" : "aquatics","Event" : "4 × 100 m medley relay", "Medal": "Gold"},
+      {"Name": "Usain Bolt","Sport" : "athletics","Event" : "100 metres", "Medal": "Gold"},
+      {"Name": "Usain Bolt","Sport" : "athletics","Event" : "200 metres", "Medal": "Gold"},
+      {"Name": "Usain Bolt","Sport" : "athletics","Event" : "4×100 metres relay", "Medal": "Gold"},
+      {"Name": "Simone Manuel","Sport" : "aquatics","Event" : "100 m freestyle", "Medal": "Gold"},
+      {"Name": "Simone Manuel","Sport" : "aquatics","Event" : "4 × 100 m medley relay", "Medal": "Gold"},
+      {"Name": "Simone Manuel","Sport" : "aquatics","Event" : "4 × 100 m freestyle relay", "Medal": "Silver"},
+      {"Name": "Simone Manuel","Sport" : "aquatics","Event" : "50 m freestyle", "Medal": "Silver"},
+      {"Name": "Madeline Dirado","Sport" : "aquatics","Event" : "200 m backstroke", "Medal": "Gold"},
+      {"Name": "Madeline Dirado","Sport" : "aquatics","Event" : "4 × 200 m freestyle relay", "Medal": "Gold"},
+      {"Name": "Madeline Dirado","Sport" : "aquatics","Event" : "400 m individual medley", "Medal": "Silver"},
+      {"Name": "Madeline Dirado","Sport" : "aquatics","Event" : "200 m individual medley", "Medal": "Bronze"}
+  ]
+  },
+  "transform": [
+    {
+      "calculate": "{'Gold': '🥇', 'Silver': '🥈', 'Bronze': '🥉'}[datum.Medal]",
+      "as": "emoji"
     },
-    "y": {"field":"Age","aggregate": "count", "title": "Count of Age"}
+    {"window": [{"op": "rank", "as": "rank"}], "groupby": ["Medal", "Name"]}
+  ],
+  "mark": {"type": "text", "baseline": "middle"},
+  "encoding": {
+    "x": {"field": "rank", "type": "ordinal", "axis": null},
+    "column": {
+      "field": "Medal",
+      "header": {"title": "", "labelFontSize": 14, "labelFontWeight": 600, "labelAlign":"right"}
+    },
+    "row": {"field": "Name","header": {
+        "labelAngle": 0,
+        "labelAlign": "left",
+        "labelFontSize": 13,
+        "labelFontWeight": 600,
+        "title": null
+      }},
+    "text": {"field": "emoji", "type": "nominal"},
+    "size": {"value": 25},
+    "tooltip": [
+      {"field": "Name", "type": "ordinal"},
+      {"field": "Sport", "type": "nominal"},
+       {"field": "Event", "type": "nominal"},
+      {"field": "Medal", "type": "nominal"}
+    ]
   }
 }
