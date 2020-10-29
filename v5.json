@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": {
     "text": "10 Most Successful Athletes",
-    "offset": 20,
+    "offset": 15,
     "align": "left",
-    "fontSize": 20
+    "fontSize": 15
   },
   "config": {"view": {"stroke": ""}},
   "width": 100,
