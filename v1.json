@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Athlete Per Million Population",
+  "title": {"text":"Athlete Per Million Population", "offset": 10, "fontSize": 15},
   "width": 900,
   "height": 550,
   "data": {
