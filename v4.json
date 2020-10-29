@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": {
-    "text": "Athlete Gender Pyramid",
-    "offset": 30,
-    "align": "left"
-  },
+  "title": {"text": "Athlete Gender Pyramid", "offset": 20, "align": "left", "fontSize":20},
   "data": {
     "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/athletes_v6.csv"
   },
@@ -32,7 +28,7 @@
           "field": "Age",
           "title": "Count",
           "sort": "descending",
-          "scale":{"domain":[0,1000]}
+          "scale": {"domain": [0, 1000]}
         },
         "color": {
           "field": "Sex",
@@ -76,8 +72,12 @@
           "sort": "descending",
           "axis": null
         },
-        "x": {"aggregate": "count", "field": "Age", "title": "Count",
-          "scale":{"domain":[0,1000]}},
+        "x": {
+          "aggregate": "count",
+          "field": "Age",
+          "title": "Count",
+          "scale": {"domain": [0, 1000]}
+        },
         "color": {"field": "Sex", "legend": null},
         "tooltip": [
           {
