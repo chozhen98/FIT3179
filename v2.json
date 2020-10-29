@@ -92,7 +92,7 @@
       {"field": "Age", "type": "quantitative"},
       {"field": "Sex", "type": "nominal"},
       {"field": "BMI_Range", "type": "nominal"},
-      {"field": "Height", "type": "quantitative", "title": "Height(cm)"},
+      {"field": "Height", "type": "quantitative", "title": "Height(m)"},
       {"field": "Weight", "type": "quantitative", "title": "Weight(kg)"},
       {"field": "Sport", "type": "nominal"}
     ]
