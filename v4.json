@@ -44,7 +44,7 @@
             "field": "Age",
             "aggregate": "count",
             "type": "nominal",
-            "title": "Count:"
+            "title": "Female count:"
           }
         ]
       }
@@ -84,7 +84,7 @@
             "field": "Age",
             "aggregate": "count",
             "type": "nominal",
-            "title": "Count:"
+            "title": "Male count:"
           }
         ]
       }
