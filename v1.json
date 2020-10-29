@@ -15,29 +15,49 @@
           "url": "https://raw.githubusercontent.com/chozhen98/FIT3179/main/country_v3.csv"
         },
         "key": "NOC",
-        "fields": ["Athlete","Population"]
+        "fields": ["Athlete", "Population"]
       }
     },
-    {"calculate": "datum.Athlete/datum.Population * 1000000", "as": "Normalise"},
+    {
+      "calculate": "datum.Athlete/datum.Population * 1000000",
+      "as": "Normalise"
+    },
     {"calculate": "datum.Population / 1000000", "as": "Pop"}
   ],
   "projection": {"type": "equirectangular"},
-   "mark": {"type": "geoshape","stroke": "lightgrey"},
+  "selection": {
+  "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+    "select": {"type": "multi"}
+  },
+  "mark": {"type": "geoshape", "stroke": "lightgrey"},
   "encoding": {
-    "color": {"field": "Normalise", "type": "quantitative", "title":"Per mill. population", 
-    "scale":{"type": "threshold", "domain": [1,5,10,20], "range":["#ffffcc","#a1dab4", "#41b6c4","#2c7fb8","#253494"]}},
+    "color": {
+      "field": "Normalise",
+      "type": "quantitative",
+      "title": "Per mill. population",
+      "scale": {
+        "type": "threshold",
+        "domain": [1, 5, 10, 20],
+        "range": ["#ffffcc", "#a1dab4", "#41b6c4", "#2c7fb8", "#253494"]
+      },
+      "condition": [{"selection": "highlight", "value": "#f0f0f0"}]
+    },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Athlete", "type": "nominal", "title": "Athlete"},
-      {"field": "Pop", "type": "nominal", "title": "Population (Million)","format":".2f"},
-      {"field": "Normalise", "type": "nominal", "title": "Athlete per 1,000,000 population", "format":".2f"}
+      {
+        "field": "Pop",
+        "type": "nominal",
+        "title": "Population (Million)",
+        "format": ".2f"
+      },
+      {
+        "field": "Normalise",
+        "type": "nominal",
+        "title": "Athlete per 1,000,000 population",
+        "format": ".2f"
+      }
     ]
   },
-  "config": {
-  "style": {
-    "cell": {
-      "stroke": "transparent"
-    }
-  }
-}
+  "config": {"style": {"cell": {"stroke": "transparent"}}}
 }
