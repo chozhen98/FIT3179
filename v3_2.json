@@ -47,9 +47,9 @@
           "type": "nominal",
           "scale": {
         "domain": ["Africa","America","Asia", "Europe", "Oceania"],
-        "range": [ "#000000", "#DF0024", "#F4C300", "#009F3D", "#0085C7"],
-         "legend": {"direction": "horizontal", "orient": "bottom"}
-      }
+        "range": [ "#000000", "#DF0024", "#F4C300", "#009F3D", "#0085C7"]
+      },
+       "legend": {"direction": "horizontal", "orient": "bottom"}
         },
         "x": {
           "field": "Total_athletes",
